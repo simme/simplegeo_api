@@ -57,7 +57,11 @@
             break;
           // End skane specific
           default:
-            staticQuery[pt[0]] = pt[1];
+            if (typeof decodeURIComponent == 'function') {
+              staticQuery[pt[0]] = decodeURIComponent(pt[1]);
+            } else {
+              staticQuery[pt[0]] = pt[1];
+            }
             break;
         }
       }
